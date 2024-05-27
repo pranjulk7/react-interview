@@ -13,7 +13,7 @@
 
 
        const handleOnClickDarkMode   = () =>{
-            if(darkMode == false){
+            if(darkMode === false){
                 setDarkMode(true);
                 setTheme("Enable Light Mode");
                 setMyStyle({

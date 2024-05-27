@@ -20,31 +20,31 @@ export default function TextForm(props) {
     setText("");
   }
 
-
   const [text,setText] = useState("Enter Text here");
 
  
-  return (<>
+  return (
+  <>
+  <div className="container" style={{color: props.mode==='dark'?'#9C93B9':'black'}}>
+          <h1>{props.heading}</h1>
+            <div className="mb-3">
+              <textarea className="form-control"  value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#9C93B9':'white'}} id="myBox" rows="8" ></textarea>
+            </div>
 
-  <div className="container">
-  <h1>{props.heading}</h1>
-<div className="mb-3">
-  
-  <textarea className="form-control"  value={text} onChange={handleOnChange} id="myBox" rows="8" ></textarea>
-</div>
-
-<button className="btn btn-primary mx-2" onClick={handleUpClick}>{props.showUpText}</button>
-<button className="btn btn-primary mx-2" onClick={handleLoClick}>{props.showLoText}</button>
-<button className="btn btn-primary mx-2" onClick={handleClearClick}>{props.showClearText}</button>
-</div>
-    <div className="container">
-      <h1>Your Text Summary</h1>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
+            <button className="btn btn-primary mx-2" onClick={handleUpClick}>{props.showUpText}</button>
+            <button className="btn btn-primary mx-2" onClick={handleLoClick}>{props.showLoText}</button>
+            <button className="btn btn-primary mx-2" onClick={handleClearClick}>{props.showClearText}</button>
     </div>
+    <div className="container" style={{color: props.mode==='dark'?'#9C93B9':'black'}}>
+              <h1>Your Text Summary</h1>
+              <p>{text.split(" ").length} words and {text.length} characters</p>
+    </div>
+
   </>
   )
 }
 TextForm.propTypes = {
-  heading: PropTypes.string.isRequired
+  heading: PropTypes.string.isRequired,
+  mode: PropTypes.string.isRequired
 }
 
